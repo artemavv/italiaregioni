@@ -7,6 +7,7 @@ defineEmits(['reset'])
 
 <template>
   <section class="panel">
+    <p class="note">Una regione segnata come completata non appare più nell'esercizio.</p>
     <table>
       <thead>
         <tr><th>Regione</th><th>Corrette</th><th>%</th><th>Completata</th></tr>
@@ -26,6 +27,7 @@ defineEmits(['reset'])
 
 <style scoped>
 .panel { width: 100%; max-width: 520px; }
+.note { margin: 0 0 10px; color: #666; font-size: 0.9rem; }
 table { width: 100%; border-collapse: collapse; }
 th, td { padding: 6px 8px; text-align: left; border-bottom: 1px solid #ddd; }
 td:nth-child(n+2), th:nth-child(n+2) { text-align: center; }

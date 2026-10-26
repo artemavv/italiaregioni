@@ -3,6 +3,7 @@ import { pickTargets, isNameMatch, RUN_LENGTH } from './training.js'
 import { regionName } from '../data/regions.js'
 
 // Modes: 'locate' - name shown, user taps the region;
+//        'capital' - a capital city is shown, user taps its region;
 //        'identify' - region highlighted, user picks/types its name.
 const AUTO_NEXT_MS = 1500
 
@@ -53,9 +54,9 @@ export function useTraining(regions, statsApi) {
     if (correct) timer = setTimeout(next, AUTO_NEXT_MS)
   }
 
-  // locate mode: one tap per attempt
+  // locate and capital modes: one tap per attempt
   function tapRegion(id) {
-    if (!run.active || run.mode !== 'locate' || run.answered) return
+    if (!run.active || !['locate', 'capital'].includes(run.mode) || run.answered) return
     finish(id === target.value, id)
   }
 

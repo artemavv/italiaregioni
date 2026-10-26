@@ -1,0 +1,23 @@
+// Regional capitals (capoluoghi di regione) with their province codes (sigla automobilistica), keyed by region name.
+export const CAPITALS = {
+  Abruzzo: { city: "L'Aquila", code: 'AQ' },
+  Basilicata: { city: 'Potenza', code: 'PZ' },
+  Calabria: { city: 'Catanzaro', code: 'CZ' },
+  Campania: { city: 'Napoli', code: 'NA' },
+  'Emilia-Romagna': { city: 'Bologna', code: 'BO' },
+  'Friuli-Venezia Giulia': { city: 'Trieste', code: 'TS' },
+  Lazio: { city: 'Roma', code: 'RM' },
+  Liguria: { city: 'Genova', code: 'GE' },
+  Lombardia: { city: 'Milano', code: 'MI' },
+  Marche: { city: 'Ancona', code: 'AN' },
+  Molise: { city: 'Campobasso', code: 'CB' },
+  Piemonte: { city: 'Torino', code: 'TO' },
+  Puglia: { city: 'Bari', code: 'BA' },
+  Sardegna: { city: 'Cagliari', code: 'CA' },
+  Sicilia: { city: 'Palermo', code: 'PA' },
+  Toscana: { city: 'Firenze', code: 'FI' },
+  'Trentino-Alto Adige': { city: 'Trento', code: 'TN' },
+  Umbria: { city: 'Perugia', code: 'PG' },
+  "Valle d'Aosta": { city: 'Aosta', code: 'AO' },
+  Veneto: { city: 'Venezia', code: 'VE' },
+}
