@@ -112,8 +112,9 @@ const onTyped = () => (dropdown.value = '')
 
     <header class="topbar">
       <h1>Regioni e capoluoghi</h1>
-      <button :class="['toggle', 'small', { on: showCapital }]" :aria-pressed="showCapital" @click="showCapital = !showCapital">
-        Capoluogi
+      <button :class="['switch', { on: showCapital }]" role="switch" :aria-checked="showCapital" @click="showCapital = !showCapital">
+        Mostra capoluogi
+        <span class="track" aria-hidden="true"><span class="knob"></span></span>
       </button>
       <button
         class="sound-toggle"
@@ -158,7 +159,7 @@ const onTyped = () => (dropdown.value = '')
             <p v-if="run.answered.correct" class="ok">OK<span v-if="inCapital" class="capital-inline">{{ regionName(target) }}</span><span v-else-if="showCapital" class="capital-inline">capoluogo: {{ capitalOf(target) }}</span></p>
             <p v-else class="bad">Questa è: {{ regionName(run.answered.picked) }}<span v-if="showCapital" class="capital-inline">capoluogo: {{ capitalOf(run.answered.picked) }}</span></p>
             <p v-if="inCapital && !run.answered.correct" class="bad">{{ capitalCity(target) }} è in: {{ regionName(target) }}</p>
-            <p v-if="!run.answered.correct" class="hint">Tocca ovunque per continuare</p>
+            <p v-if="!run.answered.correct" class="hint hint-float">Tocca ovunque per continuare</p>
           </template>
         </template>
 
@@ -175,7 +176,7 @@ const onTyped = () => (dropdown.value = '')
           <template v-else>
             <p v-if="run.answered.correct" class="ok">OK<span v-if="showCapital" class="capital-inline">capoluogo: {{ capitalOf(target) }}</span></p>
             <p v-else class="bad">Era: {{ regionName(target) }}<span v-if="showCapital" class="capital-inline">capoluogo: {{ capitalOf(target) }}</span></p>
-            <p v-if="!run.answered.correct" class="hint">Tocca ovunque per continuare</p>
+            <p v-if="!run.answered.correct" class="hint hint-float">Tocca ovunque per continuare</p>
           </template>
         </form>
       </template>

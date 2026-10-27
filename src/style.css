@@ -3,7 +3,12 @@ body { margin: 0; font-family: system-ui, sans-serif; color: #222; background: #
 main { position: relative; min-height: 100vh; background: #fafafa; max-width: 600px; margin: 0 auto; padding: 64px 16px 16px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
 h1 { margin: 0; font-size: 1.2rem; text-align: left; flex: 1; }
 .topbar { position: absolute; top: 8px; left: 16px; right: 8px; z-index: 10; display: flex; align-items: center; gap: 8px; }
-.toggle.small { font-size: 0.8rem; padding: 0 9.6px; height: 40px; }
+.switch { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 8px 0 10px; font-size: 0.6rem; line-height: 1.2; text-align: left; color: #333; background: #fff; border-color: #999; }
+.switch .track { position: relative; width: 34px; height: 20px; border-radius: 10px; background: #9a9a9a; transition: background 0.15s; }
+.switch .knob { position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); transition: transform 0.15s; }
+.switch.on { border-color: #2e9e4f; }
+.switch.on .track { background: #2e9e4f; }
+.switch.on .knob { transform: translateX(14px); }
 .capital { font-size: 1.2rem; color: #555; }
 .capital-inline { margin-left: 12px; font-size: 1rem; font-weight: 400; color: #555; }
 .controls { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: center; }
@@ -28,3 +33,5 @@ button:disabled { opacity: 0.5; cursor: default; }
 .identify { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; }
 .answer { background: #9be3ae; color: #000; border-color: #5fbf79; }
 .where { font-size: 0.7em; font-weight: 400; color: #888; }
+/* pinned to the bottom of the viewport so it stays visible even when the map pushes the status area off screen */
+.status .hint-float { position: fixed; left: 50%; bottom: 12px; transform: translateX(-50%); z-index: 20; max-width: calc(100vw - 24px); padding: 8px 16px; border: 1px solid #ccc; border-radius: 999px; background: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); color: #333; text-align: center; }
