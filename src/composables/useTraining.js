@@ -23,7 +23,10 @@ export function useTraining(regions, statsApi) {
 
   function start(mode) {
     clearTimer()
-    const targets = pickTargets(regions, statsApi.completedIds())
+    // the "capital" mode additionally skips regions whose capital is marked completed
+    const skip = statsApi.completedIds()
+    if (mode === 'capital') for (const id of statsApi.capitalDoneIds()) skip.add(id)
+    const targets = pickTargets(regions, skip)
     Object.assign(run, {
       active: targets.length > 0,
       mode,

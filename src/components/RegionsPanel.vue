@@ -7,17 +7,17 @@ defineEmits(['reset'])
 
 <template>
   <section class="panel">
-    <p class="note">Una regione segnata come completata non appare più nell'esercizio.</p>
+    <p class="note">Una regione segnata come ricordata non appare più nell'esercizio.</p>
     <table>
       <thead>
-        <tr><th>Regione</th><th>Corrette</th><th>%</th><th>Completata</th></tr>
+        <tr><th>Regione</th><th>Corrette</th><th>%</th><th>Ricordato</th></tr>
       </thead>
       <tbody>
         <tr v-for="r in REGIONS" :key="r.id" :class="{ done: stats[r.id].completed }">
           <td>{{ r.name }}</td>
           <td>{{ stats[r.id].correct }}/{{ stats[r.id].total }}</td>
           <td>{{ percent(r.id) === null ? '–' : percent(r.id) + '%' }}</td>
-          <td><input type="checkbox" v-model="stats[r.id].completed" :aria-label="'Completata: ' + r.name" /></td>
+          <td><input type="checkbox" v-model="stats[r.id].completed" :aria-label="'Ricordato: ' + r.name" /></td>
         </tr>
       </tbody>
     </table>

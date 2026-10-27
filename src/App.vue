@@ -7,12 +7,15 @@ import { REGIONS, regionName } from './data/regions.js'
 import { CAPITALS } from './data/capitals.js'
 import { useStats } from './composables/useStats.js'
 import { useTraining } from './composables/useTraining.js'
+import { useCapitalsDone } from './composables/useCapitalsDone.js'
 import { useSound } from './composables/useSound.js'
 
 const { stats, record, percent, completedIds, reset } = useStats(REGIONS)
+const { done: capitalsDone, doneIds: capitalDoneIds } = useCapitalsDone(REGIONS)
 const { run, target, start, stop, tapRegion, submitName, next, RUN_LENGTH } = useTraining(REGIONS, {
   record,
   completedIds,
+  capitalDoneIds,
 })
 
 const { enabled: soundOn, play } = useSound()
@@ -202,6 +205,6 @@ const onTyped = () => (dropdown.value = '')
     </div>
 
     <RegionsPanel v-if="showRegions" :stats="stats" :percent="percent" @reset="reset" />
-    <CapitalsPanel v-if="showCapitals" />
+    <CapitalsPanel v-if="showCapitals" :done="capitalsDone" />
   </main>
 </template>
